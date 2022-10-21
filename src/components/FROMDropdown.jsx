@@ -3,21 +3,18 @@ import { statevar } from '../context/statevar';
 
 
 
-function Dropdown() {
-        const {currency, setcurrency} =useContext(statevar);
-        // const [currency, setcurrency] = useState("INR");
-    const arr=['FROM',"TO"];
+function FROMDropdown() {
+        const {FROMcurrency, setFROMcurrency} =useContext(statevar);
 
     async function  changeCurrency(e){
-        await setcurrency(e);
-        var curr=currency
-        console.log(currency);
+        await setFROMcurrency(e);
+        //console.log(FROMcurrency);
     }
-    const elements=arr.map((item) =>
-    <div key={item}>
-    <label >{item}
+    const elements=
+    <div>
+    <label>FROM
         <div className="dropdown" style={{marginTop:"20px"}}>
-        <select onChange={(event) => changeCurrency(event.target.value)} value={currency} className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <select onChange={(event) => changeCurrency(event.target.value)} value={FROMcurrency} className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         
         <option className="dropdown-item" value="INR">Indian rupee</option>
         <option className="dropdown-item" value="USD">United States dollar</option>
@@ -59,7 +56,6 @@ function Dropdown() {
         </div>
         </label>
         </div>
-    )
 
     return (
         <>{elements}</>
@@ -68,4 +64,4 @@ function Dropdown() {
 
   
   
-   export  default Dropdown;
+   export  default FROMDropdown;
